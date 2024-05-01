@@ -1,0 +1,39 @@
+<style>
+    .font{
+        font-size: 20px;
+    }
+
+    .color{
+        background-color: rgb(203, 222, 222);
+    }
+
+</style>
+
+
+{% if i %}
+<div>
+    <div>
+        <p><b class="font color">Number of word's in the text: {{word}}</b></p> 
+    </div>
+</div>
+{% else %}
+<h1>Welcome to the Word Counter App</h1>
+<h2>Paste your text below</h2>
+{% endif %}
+
+
+
+<div>
+    <form method="POST" action="counter">
+        {% csrf_token %}
+
+        <textarea class="font color" name="text" cols="50" rows="15" placeholder="Paste your text here">
+            {{text}}
+        </textarea><br>
+
+        <div> 
+            <button type="submit">Run Counter</button>
+        </div> 
+
+    </form>
+</div>
